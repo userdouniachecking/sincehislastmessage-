@@ -5,7 +5,7 @@
   <title>Tempo Trascorso 💜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Font carino -->
+  <!-- Font cute -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -17,10 +17,30 @@
       align-items: center;
       background: linear-gradient(135deg, #f6e6ff, #e9d4ff);
       font-family: 'Quicksand', sans-serif;
+      overflow: hidden;
     }
 
+    /* 🧸 SFONDO ORSACCHIOTTI ASCII */
+    .ascii-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      line-height: 1.2;
+      color: rgba(160, 110, 200, 0.18);
+      white-space: pre;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 40px;
+      padding: 40px;
+    }
+
+    /* 🎀 CARD */
     .card {
       position: relative;
+      z-index: 1;
       background: #ffffff;
       padding: 3.5rem 3rem 3rem;
       border-radius: 25px;
@@ -30,7 +50,7 @@
       min-width: 360px;
     }
 
-    /* 🎀 Ribbon */
+    /* 🎀 RIBBON */
     .ribbon {
       position: absolute;
       top: -15px;
@@ -89,7 +109,6 @@
       text-transform: uppercase;
     }
 
-    /* ✨ dettagli coquette */
     .hearts {
       margin-top: 18px;
       font-size: 1.1rem;
@@ -100,6 +119,36 @@
 
 <body>
 
+  <!-- 🧸 ASCII BACKGROUND -->
+  <div class="ascii-bg">
+(｡•́︿•̀｡)
+ʕ•ᴥ•ʔ
+︵︵︵
+┊┊┊
+
+(ᵕ̣̣̣̣̣̣︿ᵕ̣̣̣̣̣̣)
+ʕ •ᴥ•ʔ
+︶︶︶
+
+(ಥ﹏ಥ)
+ʕ •ᴥ• ʔ
+︵︵︵
+
+(｡•́︿•̀｡)
+ʕ•ᴥ•ʔ
+︵︵︵
+┊┊┊
+
+(ᵕ̣̣̣̣̣̣︿ᵕ̣̣̣̣̣̣)
+ʕ •ᴥ•ʔ
+︶︶︶
+
+(ಥ﹏ಥ)
+ʕ •ᴥ• ʔ
+︵︵︵
+  </div>
+
+  <!-- 🎀 CARD -->
   <div class="card">
     <div class="ribbon">soft violet time</div>
 
