@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Tempo Trascorso 💜</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font carino -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f6e6ff, #e9d4ff);
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .card {
+      position: relative;
+      background: #ffffff;
+      padding: 3.5rem 3rem 3rem;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(150, 100, 200, 0.25);
+      text-align: center;
+      border: 2px solid #e6ccff;
+      min-width: 360px;
+    }
+
+    /* 🎀 Ribbon */
+    .ribbon {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #d6a9ff;
+      color: white;
+      padding: 8px 28px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      box-shadow: 0 5px 15px rgba(150, 80, 200, 0.3);
+    }
+
+    .ribbon::before,
+    .ribbon::after {
+      content: "🎀";
+      margin: 0 6px;
+    }
+
+    h2 {
+      margin-top: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: #7a3db8;
+      margin-bottom: 8px;
+    }
+
+    .start-time {
+      font-size: 0.95rem;
+      color: #b07be8;
+      margin-bottom: 25px;
+    }
+
+    #counter {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      color: #5a1f9e;
+      background: linear-gradient(135deg, #f3e8ff, #ead6ff);
+      padding: 20px 30px;
+      border-radius: 18px;
+      border: 2px dashed #d8b6ff;
+      display: inline-block;
+      min-width: 300px;
+      box-shadow: inset 0 0 15px rgba(180, 120, 255, 0.15);
+    }
+
+    .labels {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: #a57bdc;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ✨ dettagli coquette */
+    .hearts {
+      margin-top: 18px;
+      font-size: 1.1rem;
+      color: #d29bff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <div class="ribbon">soft violet time</div>
+
+    <h2>Tempo trascorso</h2>
+    <div class="start-time">dalle ore 13:01 di oggi</div>
+
+    <div id="counter">00:00:00</div>
+
+    <div class="labels">
+      <span>Ore</span>
+      <span>Minuti</span>
+      <span>Secondi</span>
+    </div>
+
+    <div class="hearts">♡ ♡ ♡</div>
+  </div>
+
+  <script>
+    function updateCounter() {
+      const oraInizio = new Date();
+      oraInizio.setHours(13, 1, 0, 0);
+
+      const oraAttuale = new Date();
+      let diff = oraAttuale - oraInizio;
+
+      if (diff < 0) {
+        document.getElementById("counter").textContent = "non ancora ✨";
+        return;
+      }
+
+      let ore = Math.floor(diff / (1000 * 60 * 60));
+      let minuti = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      let secondi = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("counter").textContent =
+        String(ore).padStart(2, "0") + ":" +
+        String(minuti).padStart(2, "0") + ":" +
+        String(secondi).padStart(2, "0");
+    }
+
+    setInterval(updateCounter, 1000);
+    updateCounter();
+  </script>
+
+</body>
+</html>
